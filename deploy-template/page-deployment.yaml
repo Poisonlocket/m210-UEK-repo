@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: page-deployment
+  labels:
+    app: page-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: page-deployment
+  template:
+    metadata:
+      name: page-deployment
+      labels:
+        app: page-deployment
+    spec:
+      containers:
+        - name: page-deployment
+          image: ghcr.io/poisonlocket/html-page:v1
+          imagePullPolicy: Always
+      restartPolicy: Always
+      
